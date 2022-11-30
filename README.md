@@ -5,7 +5,7 @@
 ## Установка
 1. Клонируйте репозиторий:
     ```bash
-    git clone https://github.com/ptrsh/event_planner_mephi
+    git clone https://github.com/ptrsh/event_planner_mephi.git
     cd event_planner_mephi
     ```
 2. Создайте и активируйте виртуальное окружение:
@@ -17,17 +17,13 @@
     ```bash
     pip3 install -r requirements.txt
     ```
-4. Cоздайте суперпользователя:
+    
+4. Примените миграции:
     ```bash
-    python manage.py createsuperuser
-    ```
-5. Примените миграции:
-    ```bash
-    python manage.py migrate
+    python3 manage.py migrate
     ```
 
-## Запуск сервера
-1. Запустите django-сервер:
+5. Cоздайте суперпользователя:
     ```bash
-    python3 manage.py runserver
+    python3 manage.py createsuperuser
     ```
