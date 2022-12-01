@@ -1,6 +1,10 @@
 from django.db import models
 from django.utils.timezone import now 
 
+def create_default_author():
+    author = Author.objects.get_or_create(name='Undefined')[0]
+    return author.id
+
 def create_default_place():
     place = Place.objects.get_or_create(name='Undefined')[0]
     return place.id
@@ -11,7 +15,7 @@ class Category(models.TextChoices):
 
 class Event(models.Model):
     name = models.CharField(max_length=128, unique=True)
-    author = models.ForeignKey('Author', on_delete=models.PROTECT, null=True)
+    author = models.ForeignKey('Author', on_delete=models.PROTECT,  default=create_default_author)
     start = models.DateTimeField(default=now) 
     end = models.DateTimeField(default=now) 
     category = models.CharField(
