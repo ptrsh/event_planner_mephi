@@ -1,6 +1,10 @@
 from django.db import models
 from django.utils.timezone import now 
 
+def create_default_place():
+    place = Place.objects.get_or_create(name='Undefined')[0]
+    return place.id
+
 class Category(models.TextChoices):
     ONLINE = "ONL", "Online"
     OFFLINE = "OFF", "Offline"
@@ -15,8 +19,8 @@ class Event(models.Model):
         choices=Category.choices,
         default=Category.OFFLINE,
     )
-    place = models.ForeignKey('Place', on_delete=models.PROTECT, null=True)
-    #members_list
+    place = models.ForeignKey('Place', on_delete=models.PROTECT, default=create_default_place)
+    members_list = models.ManyToManyField("Author", related_name="subscribess", blank=True)
     description = models.TextField(blank=True)
     max_members = models.PositiveIntegerField(default=100)
     active = models.BooleanField(default=True)

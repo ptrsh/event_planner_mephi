@@ -1,4 +1,7 @@
 from django.urls import path
-from rest_framework.urlpatterns import format_suffix_patterns
-from api import views
+from api.views import EventAPIList, EventAPIDetailView
 
+urlpatterns = [
+    path('events/', EventAPIList.as_view()),
+    path('events/<int:pk>/', EventAPIDetailView.as_view())
+]
