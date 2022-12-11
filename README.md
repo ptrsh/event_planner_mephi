@@ -29,9 +29,8 @@
     ```
 ## Запуск через docker
 
-1:
+1. 
     ```bash
+    docker-compose build
     docker-compose up -d
     ```
-
-
