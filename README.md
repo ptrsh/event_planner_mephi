@@ -27,3 +27,11 @@
     ```bash
     python3 manage.py createsuperuser
     ```
+## Запуск через docker
+
+1:
+    ```bash
+    docker-compose up -d
+    ```
+
+
