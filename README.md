@@ -2,29 +2,13 @@
 ### Проект в рамках проектной практики в МИФИ
 
 
-## Установка
-1. Клонируйте репозиторий:
+## Первоначальная настройка и запуск
+1. Установите необходимые константы в:
     ```bash
-    git clone https://github.com/ptrsh/event_planner_mephi.git
-    cd event_planner_mephi
+    /config/.env
     ```
-2. Создайте и активируйте виртуальное окружение:
+2. Запустите проект командой:
     ```bash
-    python3 -m venv venv
-    source venv/bin/activate
-    ```
-3. Установите зависимости:
-    ```bash
-    pip3 install -r requirements.txt
-    ```
-    
-4. Примените миграции:
-    ```bash
-    python3 manage.py migrate
-    ```
-
-5. Cоздайте суперпользователя:
-    ```bash
-    python3 manage.py createsuperuser
+    docker-compose up -d
     ```
 
